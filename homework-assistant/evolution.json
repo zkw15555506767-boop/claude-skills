@@ -1,0 +1,90 @@
+{
+  "version": "1.2.0",
+  "updated_at": "2026-02-05",
+  "preferences": [
+    "当作业涉及前端页面设计时，必须调用 `frontend-design` skill 获取专业的前端设计指导",
+    "当需要读取 PDF 文件时，必须调用 `pdf` skill，而不是直接用代码解析",
+    "在评估作业完成情况时，仔细阅读评分标准中的特殊声明"
+  ],
+  "fixes": [
+    "不要直接用 Python/pdfplumber 读取 PDF，应该调用 `/pdf` skill",
+    "前端设计任务不要自己写代码，应该委托给 `frontend-design` skill",
+    "PDF 生成使用 Helvetica 字体（不要混用 Times Roman）",
+    "中文字符会导致 PDF 显示问题，英文 PDF 确保全部 ASCII",
+    "删除 Markdown 中的 \"---\" 分隔符再生成 PDF"
+  ],
+  "custom_prompts": "当用户说 \"帮我评估作业\" 时，先确认是否需要读取 PDF（调用 `/pdf`），再分析代码，最后对照评分标准逐项检查",
+  "pdf_generation": {
+    "content_types": {
+      "text": {
+        "fonts": {
+          "title": "Helvetica-Bold 18pt",
+          "section_title": "Helvetica-Bold 12pt",
+          "body": "Helvetica 11pt",
+          "footer": "Helvetica 9pt"
+        },
+        "spacing": {
+          "line_height": "15pt",
+          "paragraph_spacing": "10pt",
+          "section_spacing": "15pt",
+          "bottom_margin": "70pt"
+        },
+        "rules": [
+          "段落首行不缩进",
+          "长段落拆分（3-5行）"
+        ]
+      },
+      "code": {
+        "fonts": {
+          "code_block": "Courier/Consolas 10pt"
+        },
+        "spacing": {
+          "extra_margin_top": "15pt",
+          "extra_margin_bottom": "15pt",
+          "left_indent": "30pt"
+        },
+        "rules": [
+          "保持代码原始缩进结构",
+          "代码块前后增加额外间距",
+          "可选择性添加行号"
+        ]
+      },
+      "table": {
+        "rules": [
+          "使用表格组件绘制",
+          "列宽根据内容自动调整",
+          "表头加粗或使用背景色",
+          "单元格居中或左对齐",
+          "表格过长时分页显示"
+        ]
+      }
+    }
+  },
+  "writing_style": {
+    "avoid_patterns": [
+      "One of the most important factors was...",
+      "The concept of X is central to Y's philosophy",
+      "This approach has enabled...",
+      "It is worth noting that...",
+      "In conclusion, I would like to say that..."
+    ],
+    "recommendations": [
+      "使用描述性的小节标题",
+      "直接开始主题，不要过度铺垫",
+      "简化过渡表达，自然衔接",
+      "保持句子长度变化",
+      "避免排比句和对仗结构"
+    ]
+  },
+  "session_summary": {
+    "task": "CMSC5730 案例研究作业 - 张一鸣/字节跳动",
+    "output": "5页PDF报告，包含学生ID",
+    "learnings": [
+      "PDF字体必须统一使用Helvetica（纯文字内容）",
+      "长段落需要拆分以改善可读性",
+      "AI写作痕迹需要通过改写句式消除",
+      "需要支持在PDF封面添加学生ID",
+      "代码内容需用等宽字体，表格需对齐显示"
+    ]
+  }
+}
