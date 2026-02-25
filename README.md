@@ -37,12 +37,16 @@
 
 | Skill | 描述 |
 |-------|------|
+| [china-stock-analysis](./china-stock-analysis) | A股价值投资分析工具，提供股票筛选、个股深度分析、行业对比和估值计算 |
+| [homework-assistant](./homework-assistant) | 智能作业助手，帮助分析课程作业、拆解任务、自动化完成编程和写作任务 |
+| [humanizer](./humanizer) | 去除 AI 写作痕迹的工具，使文本更自然、更像人写的 |
 | [continuous-learning](./continuous-learning) | 自动从会话中提取可复用模式并保存为 skills |
 | [continuous-learning-v2](./continuous-learning-v2) | 基于本能的学习系统，观察会话创建原子本能 |
 | [daily-news](./daily-news) | 每日资讯日报生成器（三阶段工作流） |
 | [eval-harness](./eval-harness) | Claude Code 正式评估框架 |
 | [iterative-retrieval](./iterative-retrieval) | 渐进式上下文检索模式，解决子代理上下文问题 |
 | [strategic-compact](./strategic-compact) | 建议在逻辑间隔手动压缩上下文 |
+| [tushare-finance](./tushare-finance) | 获取中国金融市场数据，支持220+个Tushare Pro接口 |
 
 ### 工具与工具
 
@@ -58,15 +62,6 @@
 | [project-guidelines-example](./project-guidelines-example) | 项目特定 skills 模板示例 |
 
 ---
-
-## 符号链接（指向其他位置）
-
-以下 skills 是符号链接，指向本地其他目录：
-
-- `china-stock-analysis` → A股价值投资分析工具
-- `homework-assistant` → 智能作业助手
-- `humanizer` → 去除 AI 写作痕迹的工具
-- `tushare-finance` → 中国金融市场数据获取
 
 ## 使用方法
 
