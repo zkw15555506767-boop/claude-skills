@@ -37,6 +37,7 @@
 
 | Skill | 描述 |
 |-------|------|
+| [brainstorming](./brainstorming) | 头脑风暴 skill，在创意工作前探索用户意图、需求和设计 |
 | [china-stock-analysis](./china-stock-analysis) | A股价值投资分析工具，提供股票筛选、个股深度分析、行业对比和估值计算 |
 | [homework-assistant](./homework-assistant) | 智能作业助手，帮助分析课程作业、拆解任务、自动化完成编程和写作任务 |
 | [humanizer](./humanizer) | 去除 AI 写作痕迹的工具，使文本更自然、更像人写的 |
@@ -45,7 +46,8 @@
 | [daily-news](./daily-news) | 每日资讯日报生成器（三阶段工作流） |
 | [eval-harness](./eval-harness) | Claude Code 正式评估框架 |
 | [iterative-retrieval](./iterative-retrieval) | 渐进式上下文检索模式，解决子代理上下文问题 |
-| [strategic-compact](./strategic-compact) | 建议在逻辑间隔手动压缩上下文 |
+| [planning-with-files](./planning-with-files) | 基于文件的规划 skill，实现 Manus 风格的任务规划 |
+| [strategic-compact](./strategic-compact) | 建议在逻辑间隔手动上下文压缩 |
 | [tushare-finance](./tushare-finance) | 获取中国金融市场数据，支持220+个Tushare Pro接口 |
 
 ### 工具与工具
@@ -53,7 +55,7 @@
 | Skill | 描述 |
 |-------|------|
 | [pdf](./pdf) | PDF 处理工具包，提取文本/表格、创建、合并、拆分、处理表单 |
-| [ui-ux-pro-max](./ui-ux-pro-max) | UI/UX 设计智能，50 种风格、21 种配色方案、50 种字体搭配 |
+| [ui-ux-pro-max](./ui-ux-pro-max) | UI/UX 设计智能，50+ 风格、161 配色方案、57 字体搭配、161 产品类型 |
 
 ### 项目示例
 
