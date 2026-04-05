@@ -1,10 +1,96 @@
-# 日报设置
+# ============================================================
+# Daily News v2 · 配置文件
+# ============================================================
+
+# ------------------------------------------------------------
+# 基础设置
+# ------------------------------------------------------------
 
 # 输出语言
 language: zh-CN
 
-# 是否显示低优先级内容（1-2星）
-show_low_priority: true
+# 日报标题格式（{{date}} 会被替换为实际日期）
+title_format: "Daily News · {{date}}"
 
-# 日报标题格式
-title_format: "Daily News - {{date}}"
+# 是否显示低优先级内容（relevance_score 1-2）
+show_low_priority: false
+
+
+# ------------------------------------------------------------
+# 自动更新
+# ------------------------------------------------------------
+
+auto_update:
+  # 是否启用自动更新
+  enabled: false
+
+  # 更新频率：daily（每天）/ weekly（每周）
+  frequency: daily
+
+  # 每天几点运行（24小时制，本地时间）
+  hour: 8
+
+  # 运行后是否自动生成日报
+  auto_report: true
+
+
+# ------------------------------------------------------------
+# 输出方式
+# ------------------------------------------------------------
+
+output:
+  # 输出格式：markdown（默认）/ html / both
+  format: markdown
+
+  # Markdown 文件保存目录（相对工作区）
+  markdown_dir: output
+
+  # 是否同时部署到网站
+  deploy_website: false
+
+  # 网站目录（相对工作区），deploy_website: true 时生效
+  website_dir: website
+
+  # 是否在生成日报后自动推送 git（需要先配置好 remote）
+  auto_git_push: false
+
+
+# ------------------------------------------------------------
+# 信源控制
+# ------------------------------------------------------------
+
+sources:
+  # 每次抓取的默认日期范围（可在运行时覆盖）
+  # today / yesterday / last-3-days / last-7-days / incremental
+  default_date_range: today
+
+  # X/Twitter 抓取设置
+  twitter:
+    limit_per_query: 15     # 每个关键词抓取条数
+    min_likes: 50           # 过滤：点赞数低于此值的推文不入库
+
+  # GitHub Trending 抓取设置
+  github:
+    since: daily            # daily / weekly / monthly
+
+  # Product Hunt 抓取设置
+  producthunt:
+    limit: 30               # 抓取前 N 名
+
+
+# ------------------------------------------------------------
+# 日报生成
+# ------------------------------------------------------------
+
+report:
+  # 每个信源最多展示多少条（0 = 不限制）
+  max_items_per_source: 0
+
+  # X/Twitter 每个话题分类最多展示几条
+  twitter_max_per_category: 3
+
+  # Hacker News 最多展示几条
+  hackernews_max: 20
+
+  # 36kr 最多展示几条
+  kr36_max: 15

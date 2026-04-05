@@ -1,0 +1,22 @@
+# source_id: twitter-ai-search
+# 描述: X/Twitter 按关键词搜索 AI 热帖
+# extends: opencli（单次 search）
+
+source_id: twitter-ai-search
+source_name: X/Twitter AI 搜索
+source_url: https://x.com/search?q=AI+agent&f=top
+enabled: true
+extends: opencli
+detail_method: none
+
+opencli:
+  cmd: twitter
+  sub: search
+  args:
+    query: "AI agent OR LLM OR Claude OR GPT"
+    limit: 30
+    filter: top
+
+date_range:
+  type: relative
+  days: 1

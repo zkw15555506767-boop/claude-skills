@@ -1,0 +1,19 @@
+# source_id: websearch-ai-news
+# 描述: 通过 WebSearch 抓取 AI 最新资讯
+# extends: websearch
+
+source_id: websearch-ai-news
+source_name: WebSearch AI 资讯
+source_url: https://www.google.com  # 占位，实际通过搜索引擎抓取
+enabled: true
+extends: websearch
+detail_method: fetch   # 用 WebFetch 抓详情页正文
+
+websearch:
+  queries:
+    - "Claude GPT Gemini new release announcement"
+    - "AI agent 最新进展 发布"
+    - "open source LLM model released"
+    - "AI startup funding 2025"
+  days: 2
+  limit: 10
