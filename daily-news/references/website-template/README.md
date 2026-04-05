@@ -1,5 +1,7 @@
 # Daily News v2 · 换设备部署指南
 
+> **信源配置**：所有启用的信源 yaml 文件统一存放在 [`daily-news/AI-source/`](../AI-source/)，包含 Product Hunt、GitHub Trending、X/Twitter（ai-sweep + Zara Builder精选）、Hacker News、OpenRouter LLM 排行共 7 个信源。换设备时复制到工作区 `methods/` 目录即可使用。
+
 从零开始，在新 Mac 上把 daily-news 完整跑起来。
 
 ---
