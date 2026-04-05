@@ -1,0 +1,15 @@
+# GitHub Trending
+source_id: github-trending
+source_name: GitHub Trending
+source_url: https://github.com/trending
+enabled: true
+extends: github-trending-smart
+detail_method: none
+
+date_range:
+  type: relative
+  days: 1
+
+# 说明：
+# extends: github-trending-smart 使用专属脚本 scripts/fetch_github_trending.py
+# 通过 Jina Reader 抓取全量项目（通常 20-25 个），含今日新增星数、描述

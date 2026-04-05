@@ -1,0 +1,10 @@
+# 机器之心
+source_id: jiqizhixin
+source_name: 机器之心
+source_url: https://www.jiqizhixin.com/
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 1

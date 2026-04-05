@@ -1,0 +1,10 @@
+# OpenRouter 分类排行
+source_id: openrouter-categories
+source_name: OpenRouter 分类排行（编程/推理等）
+source_url: https://openrouter.ai/rankings?tab=categories
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

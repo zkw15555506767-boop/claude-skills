@@ -1,0 +1,10 @@
+# Skills.sh - AI Agents 技能商店
+source_id: skills-sh
+source_name: Skills.sh - AI Agents 技能商店
+source_url: https://skills.sh
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

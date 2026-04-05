@@ -1,0 +1,10 @@
+# OpenRouter 上下文长度排行
+source_id: openrouter-context
+source_name: OpenRouter 上下文长度排行
+source_url: https://openrouter.ai/rankings?tab=context-length
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

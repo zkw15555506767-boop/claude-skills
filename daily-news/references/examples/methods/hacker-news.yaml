@@ -1,0 +1,17 @@
+# Hacker News
+source_id: hacker-news
+source_name: Hacker News
+source_url: https://news.ycombinator.com/
+enabled: true
+extends: opencli
+detail_method: fetch
+
+opencli:
+  cmd: hackernews
+  sub: top
+  args:
+    limit: 30
+
+date_range:
+  type: relative
+  days: 1

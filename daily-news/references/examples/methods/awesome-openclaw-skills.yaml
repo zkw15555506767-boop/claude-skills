@@ -1,0 +1,10 @@
+# Awesome OpenClaw Skills - OpenClaw 技能精选
+source_id: awesome-openclaw-skills
+source_name: Awesome OpenClaw Skills
+source_url: https://github.com/VoltAgent/awesome-openclaw-skills
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

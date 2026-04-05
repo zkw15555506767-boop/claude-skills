@@ -1,0 +1,10 @@
+# Awesome Claude Code - Claude Skills 精选列表
+source_id: awesome-claude-code
+source_name: Awesome Claude Code - Claude Skills 热门列表
+source_url: https://github.com/hesreallyhim/awesome-claude-code
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

@@ -1,0 +1,17 @@
+# 36氪
+source_id: 36kr
+source_name: 36氪
+source_url: https://www.36kr.com/information/AI/
+enabled: true
+extends: opencli
+detail_method: fetch
+
+opencli:
+  cmd: 36kr
+  sub: news
+  args:
+    limit: 30
+
+date_range:
+  type: relative
+  days: 1

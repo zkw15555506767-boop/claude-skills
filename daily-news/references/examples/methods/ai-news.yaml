@@ -1,0 +1,10 @@
+# AI News
+source_id: ai-news
+source_name: AI News
+source_url: https://news.ycombinator.com/news?q=ai
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 1

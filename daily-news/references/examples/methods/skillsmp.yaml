@@ -1,0 +1,10 @@
+# SkillsMP - Agent Skills 综合市场
+source_id: skillsmp
+source_name: SkillsMP - Agent Skills 市场
+source_url: https://skillsmp.com/zh
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

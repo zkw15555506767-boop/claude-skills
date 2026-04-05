@@ -1,0 +1,10 @@
+# OpenRouter 市场占有率排行
+source_id: openrouter-market-share
+source_name: OpenRouter 市场占有率
+source_url: https://openrouter.ai/rankings?tab=market-share
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7

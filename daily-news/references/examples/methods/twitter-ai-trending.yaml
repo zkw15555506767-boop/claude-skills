@@ -1,0 +1,25 @@
+# source_id: twitter-ai-trending
+# 描述: X/Twitter AI 热门话题 + 热帖扫描
+# extends: opencli（ai-sweep 多词搜索）
+
+source_id: twitter-ai-trending
+source_name: X/Twitter AI 热点
+source_url: https://x.com/search?q=AI&f=top
+enabled: true
+extends: opencli
+detail_method: none     # 推文正文已在抓取时获取，无需再访问详情页
+
+opencli:
+  cmd: twitter
+  sub: ai-sweep         # 使用 scripts/fetch_twitter.py 的多词扫描
+  args:
+    limit_per_query: 15
+
+date_range:
+  type: relative
+  days: 1
+
+# 注意事项：
+# - 需要 Chrome 已安装 opencli 扩展并登录 X
+# - 运行前执行：opencli doctor
+# - 如扩展未连接，skill 会提示用户操作

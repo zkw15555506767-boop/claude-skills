@@ -1,0 +1,17 @@
+# Product Hunt Top 30
+source_id: product-hunt
+source_name: Product Hunt
+source_url: https://www.producthunt.com/leaderboard/daily
+enabled: true
+extends: opencli
+detail_method: none
+
+opencli:
+  cmd: producthunt
+  sub: today
+  args:
+    limit: 30
+
+date_range:
+  type: relative
+  days: 1

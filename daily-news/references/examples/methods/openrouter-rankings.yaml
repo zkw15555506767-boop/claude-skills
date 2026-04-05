@@ -1,0 +1,10 @@
+# OpenRouter 模型排行
+source_id: openrouter-rankings
+source_name: OpenRouter 模型排行
+source_url: https://openrouter.ai/rankings
+enabled: true
+extends: webfetch-smart
+detail_method: fetch
+date_range:
+  type: relative
+  days: 7
