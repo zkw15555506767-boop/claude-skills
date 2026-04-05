@@ -1,9 +1,9 @@
 ---
 name: daily-news
-version: "2.0.0"
+version: "2.1.0"
 description: |
   每日资讯日报生成器 v2。三阶段工作流：获取元数据、生成摘要、输出日报。
-  v2 新增：opencli 抓取 X/Twitter AI 热帖、WebSearch 搜索补充信源、数据库 V3 迁移。
+  v2 新增：opencli 抓取 X/Twitter AI 热帖、Zara Builder Feed、OpenRouter 排行、GitHub Trending、WebSearch 补充信源。
   触发场景：每日新闻、资讯日报、信息监控、新闻聚合、daily news、生成日报、刷 X、抓推文。
   也用于添加新信源（自动分析网页并生成 method 文件）。
 ---
@@ -94,8 +94,10 @@ python3 scripts/db.py source-status --db <db> --source <source_id>
 | `rss` | `python3 references/methods/rss.py` | 最快，有 RSS 时首选 |
 | `webfetch-smart` | 见 `references/methods/webfetch-smart.md` | 大多数网站 |
 | `browser-smart` | 见 `references/methods/browser-smart.md` | JS 渲染 / 需登录 |
-| `opencli` | 见 `references/methods/opencli.md` | X/Twitter、Product Hunt、HN、36kr 等 |
-| `github-trending-smart` | `python3 scripts/fetch_github_trending.py` | GitHub Trending 专属，opencli operate 抓取 |
+| `opencli` | 见 `references/methods/opencli.md` | X/Twitter、Product Hunt、HN 等 |
+| `github-trending-smart` | `python3 scripts/fetch_github_trending.py` | GitHub Trending，opencli operate 读 DOM |
+| `openrouter-smart` | `python3 scripts/fetch_openrouter.py` | OpenRouter LLM 周排名 |
+| `zara-feed-smart` | `python3 scripts/fetch_zara_feed.py` | Zara Builder Feed（GitHub 实时拉取） |
 | `websearch` | 见 `references/methods/websearch.md` | 搜索补充信源 |
 | 无 extends | 直接执行脚本（.py）或按指引（.md） | 完全自定义 |
 
