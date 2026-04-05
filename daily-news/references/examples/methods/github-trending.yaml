@@ -11,5 +11,5 @@ date_range:
   days: 1
 
 # 说明：
-# extends: github-trending-smart 使用专属脚本 scripts/fetch_github_trending.py
-# 通过 Jina Reader 抓取全量项目（通常 20-25 个），含今日新增星数、描述
+# extends: github-trending-smart 使用 scripts/fetch_github_trending.py
+# 通过 opencli operate eval 直接读 DOM，获取全量项目（含描述、今日新增星数）

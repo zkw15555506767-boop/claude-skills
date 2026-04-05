@@ -8,7 +8,7 @@ detail_method: none
 
 opencli:
   cmd: producthunt
-  sub: today
+  sub: posts
   args:
     limit: 30
 

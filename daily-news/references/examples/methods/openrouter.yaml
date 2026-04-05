@@ -1,0 +1,15 @@
+# OpenRouter LLM 排行
+source_id: openrouter
+source_name: OpenRouter
+source_url: https://openrouter.ai/rankings
+enabled: true
+extends: openrouter-smart
+detail_method: none
+
+date_range:
+  type: relative
+  days: 7
+
+# 说明：
+# extends: openrouter-smart 使用 scripts/fetch_openrouter.py
+# 通过 opencli operate eval 抓取 LLM Leaderboard（使用量排名 Top 10）

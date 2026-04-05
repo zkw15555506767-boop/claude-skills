@@ -1,0 +1,16 @@
+# Zara Builder Feed（X/Twitter 精选）
+source_id: zara-feed
+source_name: Zara Builder Feed
+source_url: https://github.com/zarazhangrui/follow-builders
+enabled: true
+extends: zara-feed-smart
+detail_method: none
+
+date_range:
+  type: relative
+  days: 1
+
+# 说明：
+# extends: zara-feed-smart 使用 scripts/fetch_zara_feed.py
+# 从 Zara 的 GitHub 实时拉 feed-x.json
+# 包含 karpathy 等 25 位 AI builder 的精选推文（含完整 likes/text）
