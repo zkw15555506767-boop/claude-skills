@@ -1,0 +1,11 @@
+# OpenRouter LLM 排行
+source_id: openrouter
+source_name: OpenRouter
+source_url: https://openrouter.ai/rankings
+enabled: true
+extends: openrouter-smart
+detail_method: none
+
+date_range:
+  type: relative
+  days: 7

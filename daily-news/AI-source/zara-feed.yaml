@@ -1,0 +1,11 @@
+# Zara Builder Feed（X/Twitter 精选）
+source_id: zara-feed
+source_name: Zara Builder Feed
+source_url: https://github.com/zarazhangrui/follow-builders
+enabled: true
+extends: zara-feed-smart
+detail_method: none
+
+date_range:
+  type: relative
+  days: 1
