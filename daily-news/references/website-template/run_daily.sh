@@ -32,19 +32,16 @@ is_valid_json_array() {
 
 echo ""
 echo "▶ [1/5] Product Hunt..."
-PH_RAW=$(/usr/local/bin/node /usr/local/bin/opencli producthunt posts --limit 30 --format json 2>/tmp/dn_ph_err.log) || true
-cat /tmp/dn_ph_err.log >&2
-PH_ITEMS=$(echo "$PH_RAW" | python3 -c "
+PH_ITEMS=$(python3 "$SKILL/scripts/fetch_producthunt.py" 2>/tmp/dn_ph_err.log | python3 -c "
 import json,sys
 try:
-    decoder = json.JSONDecoder()
-    raw = sys.stdin.read().strip()
-    data, _ = decoder.raw_decode(raw)
-    items=[{'title':f'{i+1}. {p[\"name\"]} — {p[\"tagline\"]}','url':p['url'],'published_at':'${TODAY}T00:00:00'} for i,p in enumerate(data)]
+    items=json.load(sys.stdin)
+    for it in items: it['published_at']='${TODAY}T00:00:00'
     print(json.dumps(items,ensure_ascii=False))
 except Exception as e:
-    import sys; print('[]'); print(f'PH parse error: {e}', file=sys.stderr)
+    print('[]'); print(f'PH parse error: {e}', file=sys.stderr)
 " 2>/tmp/dn_ph_parse_err.log) || true
+cat /tmp/dn_ph_err.log >&2
 cat /tmp/dn_ph_parse_err.log >&2
 
 if is_valid_json_array "$PH_ITEMS"; then
@@ -58,11 +55,16 @@ conn = sqlite3.connect(db)
 now = datetime.now().isoformat()
 # 先删除今天的旧数据，保证每次都是最新一次抓取的完整 30 条
 deleted = conn.execute(\"DELETE FROM items WHERE source_id='product-hunt' AND DATE(published_at)=?\", (today,)).rowcount
+seen_urls = set()
+inserted = 0
 for item in items:
+    if item['url'] in seen_urls: continue  # 跳过重复 URL
+    seen_urls.add(item['url'])
     conn.execute('INSERT INTO items (source_id, url, title, published_at, discovered_at) VALUES (?,?,?,?,?)',
                  ('product-hunt', item['url'], item['title'], today + 'T00:00:00', now))
+    inserted += 1
 conn.commit(); conn.close()
-print(f'  PH: 清除旧数据 {deleted} 条，写入 {len(items)} 条')
+print(f'  PH: 清除旧数据 {deleted} 条，写入 {inserted} 条')
 " || echo "  PH: 入库失败"
 else
   echo "  PH: 抓取结果为空或解析失败，跳过"
