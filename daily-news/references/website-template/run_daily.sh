@@ -56,19 +56,13 @@ db = '$DB'
 today = '$TODAY'
 conn = sqlite3.connect(db)
 now = datetime.now().isoformat()
-added = 0; updated = 0
+# 先删除今天的旧数据，保证每次都是最新一次抓取的完整 30 条
+deleted = conn.execute(\"DELETE FROM items WHERE source_id='product-hunt' AND DATE(published_at)=?\", (today,)).rowcount
 for item in items:
-    exists = conn.execute('SELECT id FROM items WHERE url=?', (item['url'],)).fetchone()
-    if exists:
-        conn.execute('UPDATE items SET title=?, published_at=? WHERE url=?',
-                     (item['title'], today + 'T00:00:00', item['url']))
-        updated += 1
-    else:
-        conn.execute('INSERT INTO items (source_id, url, title, published_at, discovered_at) VALUES (?,?,?,?,?)',
-                     ('product-hunt', item['url'], item['title'], today + 'T00:00:00', now))
-        added += 1
+    conn.execute('INSERT INTO items (source_id, url, title, published_at, discovered_at) VALUES (?,?,?,?,?)',
+                 ('product-hunt', item['url'], item['title'], today + 'T00:00:00', now))
 conn.commit(); conn.close()
-print(f'  PH: 抓 {len(items)} 条，新增 {added} 条，更新 {updated} 条')
+print(f'  PH: 清除旧数据 {deleted} 条，写入 {len(items)} 条')
 " || echo "  PH: 入库失败"
 else
   echo "  PH: 抓取结果为空或解析失败，跳过"
