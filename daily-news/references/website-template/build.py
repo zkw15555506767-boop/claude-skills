@@ -303,6 +303,11 @@ def render_digest(by_src, gh_items, tw_ai, tw_zara, or_items, date_cn, weekday):
 
 def render_ph(items):
     medals = {1:"🥇",2:"🥈",3:"🥉"}
+    # 按 rank 排序（title 格式 "1. Name — tagline"，从中提取数字排序）
+    def ph_rank(p):
+        m = re.match(r"^(\d+)\.", p.get("title") or "")
+        return int(m.group(1)) if m else 999
+    items = sorted(items, key=ph_rank)
     # 批量翻译 tagline
     taglines = [re.sub(r"^\d+\.\s*.+?\s—\s","", p.get("title",""), count=1) for p in items]
     taglines_zh = translate_batch(taglines)
