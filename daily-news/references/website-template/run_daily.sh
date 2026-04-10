@@ -53,23 +53,22 @@ db = '$DB'
 today = '$TODAY'
 conn = sqlite3.connect(db)
 now = datetime.now().isoformat()
-# 先删除今天的旧数据，保证每次都是最新一次抓取的完整 30 条
-deleted = conn.execute(\"DELETE FROM items WHERE source_id='product-hunt' AND DATE(published_at)=?\", (today,)).rowcount
+# 全量替换：删除所有 PH 旧数据（URL 全局唯一，跨日期会冲突），插入今日最新排行
+conn.execute(\"DELETE FROM items WHERE source_id='product-hunt'\")
 seen_urls = set()
 inserted = 0
-for item in items:
-    if item['url'] in seen_urls: continue  # 跳过重复 URL
+for item in sorted(items, key=lambda x: x.get('_rank', 999)):
+    if item['url'] in seen_urls: continue
     seen_urls.add(item['url'])
     conn.execute('INSERT INTO items (source_id, url, title, published_at, discovered_at) VALUES (?,?,?,?,?)',
                  ('product-hunt', item['url'], item['title'], today + 'T00:00:00', now))
     inserted += 1
 conn.commit(); conn.close()
-print(f'  PH: 清除旧数据 {deleted} 条，写入 {inserted} 条')
+print(f'  PH: 写入 {inserted} 条（今日最新排行）')
 " || echo "  PH: 入库失败"
 else
   echo "  PH: 抓取结果为空或解析失败，跳过"
 fi
-
 echo ""
 echo "▶ [2/5] GitHub Trending..."
 python3 "$SKILL/scripts/fetch_github_trending.py" > /tmp/dn_gh.json 2>/tmp/dn_gh_err.log || true
