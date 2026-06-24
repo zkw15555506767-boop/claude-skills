@@ -78,30 +78,6 @@
 | [obsidian-markdown](./obsidian-markdown) | 创建和编辑 Obsidian Flavored Markdown（wikilinks、callouts、properties 等） |
 | [obsidian-bases](./obsidian-bases) | 创建和编辑 Obsidian Bases 文件，构建数据库视图、过滤器和公式 |
 
-### 飞书/Lark
-
-| Skill | 描述 |
-|-------|------|
-| [lark-shared](./lark-shared) | 飞书 CLI 共享基础：应用配置、认证登录、身份切换、权限管理 |
-| [lark-im](./lark-im) | 飞书即时通讯：收发消息、搜索聊天记录、管理群聊 |
-| [lark-doc](./lark-doc) | 飞书云文档：创建/编辑文档、上传下载文件、搜索云空间 |
-| [lark-sheets](./lark-sheets) | 飞书电子表格：创建表格、读写数据、追加行、导出文件 |
-| [lark-base](./lark-base) | 飞书多维表格：建表、字段管理、记录读写、视图配置 |
-| [lark-drive](./lark-drive) | 飞书云空间：上传下载文件、管理目录、权限、评论 |
-| [lark-calendar](./lark-calendar) | 飞书日历：查看/创建日程、管理参会人、查询忙闲状态 |
-| [lark-task](./lark-task) | 飞书任务：创建待办、跟踪进度、拆分子任务、分配协作成员 |
-| [lark-wiki](./lark-wiki) | 飞书知识库：管理知识空间、节点层级、文档组织 |
-| [lark-mail](./lark-mail) | 飞书邮箱：起草、发送、回复、转发邮件，管理附件和标签 |
-| [lark-contact](./lark-contact) | 飞书通讯录：查询组织架构、搜索员工、获取 open_id |
-| [lark-minutes](./lark-minutes) | 飞书妙记：获取妙记基础信息和 AI 产物（总结、待办、章节） |
-| [lark-vc](./lark-vc) | 飞书视频会议：查询会议记录、获取会议纪要和逐字稿 |
-| [lark-event](./lark-event) | 飞书事件订阅：WebSocket 长连接实时监听飞书事件 |
-| [lark-whiteboard](./lark-whiteboard) | 飞书白板操作 |
-| [lark-openapi-explorer](./lark-openapi-explorer) | 探索飞书原生 OpenAPI，满足 lark-cli 未封装的接口需求 |
-| [lark-skill-maker](./lark-skill-maker) | 创建 lark-cli 自定义 Skill，封装飞书 API 操作 |
-| [lark-workflow-meeting-summary](./lark-workflow-meeting-summary) | 汇总指定时间范围内的会议纪要，生成结构化报告 |
-| [lark-workflow-standup-report](./lark-workflow-standup-report) | 生成指定日期的日程与未完成任务摘要 |
-
 ### 项目示例
 
 | Skill | 描述 |
